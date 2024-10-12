@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-// Note: The AggregatorV3Interface might be at a different location than what was in the video!
+
 import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 import {PriceConverter} from "./PriceConverter.sol";
 
@@ -13,8 +13,7 @@ contract FundMe {
     mapping(address => uint256) private s_addressToAmountFunded;
     address[] private s_funders;
 
-    // Could we make this constant?  /* hint: no! We should make it immutable! */
-    address private /* immutable */ i_owner;
+      address private /* immutable */ i_owner;
     uint256 public constant MINIMUM_USD = 5 * 10 ** 18;
     AggregatorV3Interface private s_priceFeed;
 
