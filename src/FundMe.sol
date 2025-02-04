@@ -75,6 +75,7 @@ contract FundMe {
             s_addressToAmountFunded[funder] = 0;
         }
         s_funders = new address[](0);
+
         // // transfer
         // payable(msg.sender).transfer(address(this).balance);
 
