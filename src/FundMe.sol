@@ -62,10 +62,6 @@ contract FundMe {
     }
 
     function withdraw() public onlyOwner {
-        (bool callSuccess, ) = payable(msg.sender).call{
-            value: address(this).balance
-        }("");
-        require(callSuccess, "Call failed");
         for (
             uint256 funderIndex = 0;
             funderIndex < s_funders.length;
@@ -76,6 +72,10 @@ contract FundMe {
         }
         s_funders = new address[](0);
 
+        (bool callSuccess, ) = payable(msg.sender).call{
+            value: address(this).balance
+        }("");
+        require(callSuccess, "Call failed");
         // // transfer
         // payable(msg.sender).transfer(address(this).balance);
 
